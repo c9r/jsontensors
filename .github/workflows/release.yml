@@ -3,7 +3,9 @@ name: release
 # A tag names the package and the version it releases: rust-v0.1.0,
 # python-v0.1.0, or typescript-v0.1.0. The job for that package checks that
 # the tag's version is the manifest's, runs the package's tests, and
-# publishes it to its registry.
+# publishes it to its registry. Python and TypeScript publish through their
+# registries' trusted publishing, which trusts this workflow's identity and
+# needs no token. Rust publishes with a registry token held as a secret.
 
 on:
   push:
@@ -70,7 +72,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 26
-          registry-url: https://registry.npmjs.org
       - name: The tag's version is the manifest's
         working-directory: typescript
         run: |
@@ -82,6 +83,4 @@ jobs:
       - working-directory: typescript
         run: pnpm check && pnpm lint && pnpm test && pnpm build
       - working-directory: typescript
-        run: pnpm publish --access public --provenance --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
