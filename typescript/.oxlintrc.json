@@ -1,0 +1,56 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": ["**/*.js", "examples/"],
+  "plugins": ["typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "no-control-regex": "off",
+    "no-extra-boolean-cast": "off",
+    "no-unused-private-class-members": "warn",
+    "no-unused-vars": "off",
+    "prefer-const": "off",
+    "require-yield": "off",
+    "typescript/await-thenable": "error",
+    "typescript/consistent-type-exports": "error",
+    "typescript/consistent-type-imports": [
+      "error",
+      { "disallowTypeAnnotations": false }
+    ],
+    "typescript/dot-notation": [
+      "error",
+      { "allowIndexSignaturePropertyAccess": true }
+    ],
+    "typescript/no-array-delete": "error",
+    "typescript/no-confusing-void-expression": [
+      "error",
+      { "ignoreArrowShorthand": true }
+    ],
+    "typescript/no-duplicate-type-constituents": "off",
+    "typescript/no-redundant-type-constituents": "off",
+    "typescript/no-explicit-any": ["error", { "ignoreRestArgs": true }],
+    "typescript/no-floating-promises": "error",
+    "typescript/no-for-in-array": "error",
+    "typescript/no-implied-eval": "error",
+    "typescript/no-import-type-side-effects": "error",
+    "typescript/no-meaningless-void-operator": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-unnecessary-boolean-literal-compare": "error",
+    "typescript/no-unnecessary-template-expression": "error",
+    "typescript/no-unnecessary-type-assertion": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-enum-comparison": "error",
+    "typescript/no-unsafe-member-access": "error",
+    "typescript/no-unsafe-declaration-merging": "off",
+    "typescript/no-unsafe-return": "error",
+    "typescript/only-throw-error": "error",
+    "typescript/prefer-optional-chain": ["error", { "requireNullish": true }],
+    "typescript/prefer-promise-reject-errors": "error",
+    "typescript/return-await": ["error", "error-handling-correctness-only"],
+    "typescript/strict-boolean-expressions": "error",
+    "typescript/use-unknown-in-catch-callback-variable": "error"
+  }
+}
