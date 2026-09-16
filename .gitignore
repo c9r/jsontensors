@@ -1,0 +1,5 @@
+rust/target
+python/.venv
+typescript/node_modules
+typescript/dist
+.DS_Store
