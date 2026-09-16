@@ -6,7 +6,7 @@ The document owns the file. It stays JSON, any JSON at all, and reads as JSON. T
 
 ## Why
 
-JSON holds structure well and numbers badly. A float costs twenty bytes as text, reading it means parsing it, and a document whose bulk is numeric is mostly parser time and mostly bloat. A tensor file holds numbers well and structure badly. It is a flat table of named arrays, and the shape of the data, which array belongs to what, lives in code somewhere else. Most numeric data is a little structure around a lot of numbers, and the two families make you choose which half to do badly. jsontensors makes no choice. The structure is JSON and the numbers are bytes, in one file, and each side is read the way it should be.
+JSON holds structure well and numbers badly. A float costs twenty bytes as text, reading it means parsing it, and a document whose bulk is numeric is mostly parser time and mostly bloat. A tensor file holds numbers well and structure badly. It is a flat table of named arrays. The shape of the data, which array belongs to what, lives in code somewhere else. Most numeric data is a little structure around a lot of numbers. The two families make you choose which half to do badly. jsontensors makes no choice. The structure is JSON and the numbers are bytes, in one file. Each side is read the way it should be.
 
 ## The format
 
@@ -16,7 +16,7 @@ A file is an eight-byte little-endian header length, that many bytes of UTF-8 JS
 { "$dtype": "F32", "shape": [96000], "offset": 0, "length": 384000 }
 ```
 
-A decoder parses the JSON and replaces each reference with a view over the buffer. An encoder does the inverse, laying tensors out widest dtype first so every view is aligned. A property name that begins with `$` travels with one more `$`, so `$dtype` can only ever be written by the format and any JSON document round-trips unchanged. The references must tile the buffer exactly, so a truncated or spliced file is refused rather than misread. [SPEC.md](SPEC.md) is the whole specification, and it is short.
+A decoder parses the JSON and replaces each reference with a view over the buffer. An encoder does the inverse, laying tensors out widest dtype first so every view is aligned. A property name that begins with `$` travels with one more `$`, so `$dtype` can only ever be written by the format. Any JSON document therefore round-trips unchanged. The references must tile the buffer exactly, so a truncated or spliced file is refused rather than misread. [SPEC.md](SPEC.md) is the whole specification, and it is short.
 
 ## Implementations
 
@@ -39,7 +39,7 @@ And each encodes and decodes in memory, for documents that travel as bytes.
 
 ## Conformance
 
-`conformance/cases` holds files every implementation must decode to the stated values or refuse for the stated reason, and files every implementation must reproduce byte for byte after a decode and re-encode. [conformance/README.md](conformance/README.md) describes the cases. Each implementation's test suite runs them, and an implementation that passes is a jsontensors implementation.
+`conformance/cases` holds files every implementation must decode to the stated values or refuse for the stated reason, and files every implementation must reproduce byte for byte after a decode and re-encode. [conformance/README.md](conformance/README.md) describes the cases. Each implementation's test suite runs them. An implementation that passes is a jsontensors implementation.
 
 ## License
 

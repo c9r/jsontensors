@@ -1,6 +1,6 @@
 # jsontensors
 
-A jsontensors file is a JSON document followed by its tensors. Each tensor's bytes live in a binary buffer after the JSON. The tensor's place in the document holds a reference giving its dtype, shape, and location in the buffer. That is the whole format. It earns its keep on size and on speed. A float costs some twenty bytes as JSON text and four as binary, and reading it as text means parsing it, so a document whose bulk is numeric becomes compact and fast when its arrays leave the text. There is no envelope, no metadata namespace, and no tensor name table. The document owns the top level of the file.
+A jsontensors file is a JSON document followed by its tensors. Each tensor's bytes live in a binary buffer after the JSON. The tensor's place in the document holds a reference giving its dtype, shape, and location in the buffer. That is the whole format. It earns its keep on size and on speed. A float costs some twenty bytes as JSON text and four as binary, and reading it as text means parsing it. A document whose bulk is numeric therefore becomes compact and fast when its arrays leave the text. There is no envelope, no metadata namespace, and no tensor name table. The document owns the top level of the file.
 
 Reading a file is parsing JSON and substituting arrays. Writing one is the inverse. Two rules, substitution and quoting, make the round trip exact.
 
@@ -67,7 +67,7 @@ A reference is exactly this object, with these four properties and no others:
 | `U64`, `U32`, `U16`, `U8` | 8, 4, 2, 1 | unsigned |
 | `BOOL` | 1 | one byte per element, 0 or 1 |
 
-All multi-byte values are little-endian. A binding exposes each dtype as its language's natural array type, and where the language has no type for one, as the bytes with the dtype named beside them.
+All multi-byte values are little-endian. A binding exposes each dtype as its language's natural array type. Where the language has no type for one, it exposes the bytes with the dtype named beside them.
 
 ## Quoting
 
