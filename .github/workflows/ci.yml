@@ -1,0 +1,60 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: rust
+      - name: Regenerated cases are unchanged
+        working-directory: rust
+        run: |
+          cargo run --example generate
+          git diff --exit-code -- ../conformance/cases
+      - working-directory: rust
+        run: cargo fmt --check
+      - working-directory: rust
+        run: cargo clippy --all-targets --features cli -- -D warnings
+      - working-directory: rust
+        run: cargo test --features cli
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - working-directory: python
+        run: uv sync --dev
+      - working-directory: python
+        run: uv run pytest -q
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: typescript/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+      - working-directory: typescript
+        run: pnpm install --frozen-lockfile
+      - working-directory: typescript
+        run: pnpm check
+      - working-directory: typescript
+        run: pnpm lint
+      - working-directory: typescript
+        run: pnpm test
+      - working-directory: typescript
+        run: pnpm build
