@@ -1,0 +1,88 @@
+{
+  "canonical": true,
+  "document": {
+    "rows": [
+      [
+        null,
+        null
+      ],
+      [
+        null,
+        null
+      ],
+      []
+    ],
+    "second_double": null,
+    "second_short": null,
+    "deep": {
+      "er": {
+        "est": null
+      }
+    }
+  },
+  "tensors": [
+    {
+      "path": "/rows/0/0",
+      "dtype": "U8",
+      "shape": [
+        3
+      ],
+      "length": 3,
+      "sha256": "039058c6f2c0cb492c533b0a4d14ef77cc0f78abccced5287d84a1a2011cfb81"
+    },
+    {
+      "path": "/rows/0/1",
+      "dtype": "F64",
+      "shape": [
+        1
+      ],
+      "length": 8,
+      "sha256": "6c3c396ed6b5c36dcae172271f462051b1266b851e92df3deea8ac65478fd712"
+    },
+    {
+      "path": "/rows/1/0",
+      "dtype": "U8",
+      "shape": [
+        1
+      ],
+      "length": 1,
+      "sha256": "e52d9c508c502347344d8c07ad91cbd6068afc75ff6292f062a09ca381c89e71"
+    },
+    {
+      "path": "/rows/1/1",
+      "dtype": "U16",
+      "shape": [
+        2
+      ],
+      "length": 4,
+      "sha256": "caa680df3456cb7d09adb76001fbbbae2115b1022e243a383c5fd14c43fff38a"
+    },
+    {
+      "path": "/second_double",
+      "dtype": "F64",
+      "shape": [
+        2
+      ],
+      "length": 16,
+      "sha256": "cdf3a570f81118522792babee48c62a4b85b2630c58cf432da0c0e7ea965923d"
+    },
+    {
+      "path": "/second_short",
+      "dtype": "U16",
+      "shape": [
+        1
+      ],
+      "length": 2,
+      "sha256": "a2c4aed1cf757cd9a509734a267ffc7b1166b55f4c8f9c3e3550c56e743328fc"
+    },
+    {
+      "path": "/deep/er/est",
+      "dtype": "I32",
+      "shape": [
+        1
+      ],
+      "length": 4,
+      "sha256": "ad95131bc0b799c0b1af477fb14fcf26a6a9f76079e48bf090acb7e8367bfd0e"
+    }
+  ]
+}

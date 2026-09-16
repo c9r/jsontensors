@@ -1,0 +1,168 @@
+{
+  "canonical": true,
+  "document": {
+    "F64": null,
+    "F32": null,
+    "F16": null,
+    "BF16": null,
+    "I64": null,
+    "I32": null,
+    "I16": null,
+    "I8": null,
+    "U64": null,
+    "U32": null,
+    "U16": null,
+    "U8": null,
+    "BOOL": null,
+    "scalar": null,
+    "empty": null,
+    "cube": null
+  },
+  "tensors": [
+    {
+      "path": "/F64",
+      "dtype": "F64",
+      "shape": [
+        4
+      ],
+      "length": 32,
+      "sha256": "240b6ba49236a6ab1afe08a43a8f55cf6bd0307b86b6fbd4c0bff6e6fa81046e"
+    },
+    {
+      "path": "/F32",
+      "dtype": "F32",
+      "shape": [
+        3
+      ],
+      "length": 12,
+      "sha256": "3c59ddde02c1e756d650ac4cca4a1e7ef8a5e26ef201b499273177e64bfd2dc8"
+    },
+    {
+      "path": "/F16",
+      "dtype": "F16",
+      "shape": [
+        3
+      ],
+      "length": 6,
+      "sha256": "42f08ef5c72383c86db0a8a6aac44429497c423bac07167365ed8c84edb89e95"
+    },
+    {
+      "path": "/BF16",
+      "dtype": "BF16",
+      "shape": [
+        3
+      ],
+      "length": 6,
+      "sha256": "6e1258eb2879f940c5ff21aac425749f8ef36addd486d960b007500ee3fcd2e2"
+    },
+    {
+      "path": "/I64",
+      "dtype": "I64",
+      "shape": [
+        2
+      ],
+      "length": 16,
+      "sha256": "561a887583e2f21e15ac0f2ac49e6ab2a790bfa7b819bad29185ef196c26d8a9"
+    },
+    {
+      "path": "/I32",
+      "dtype": "I32",
+      "shape": [
+        2
+      ],
+      "length": 8,
+      "sha256": "072082ae50f1346898f40082ed6cea2aa3b0e2260cf83def34cfe9727634adca"
+    },
+    {
+      "path": "/I16",
+      "dtype": "I16",
+      "shape": [
+        2
+      ],
+      "length": 4,
+      "sha256": "f5e19f6c6bb54f19e47e8aae11bb829724e21dd48db79265a645ba4029f7e6c9"
+    },
+    {
+      "path": "/I8",
+      "dtype": "I8",
+      "shape": [
+        2
+      ],
+      "length": 2,
+      "sha256": "e65aceb89baab6ddba7f8ff28bdaf5da68026060445be6ac268c138d9a959b3f"
+    },
+    {
+      "path": "/U64",
+      "dtype": "U64",
+      "shape": [
+        2
+      ],
+      "length": 16,
+      "sha256": "787979ee6a78d79a5c6cf1f3ede7cb1d40a6ae9e410062d0b57f848ca083edd6"
+    },
+    {
+      "path": "/U32",
+      "dtype": "U32",
+      "shape": [
+        2
+      ],
+      "length": 8,
+      "sha256": "5981693c8df83eea16da42a0f748facb299546688544a0c2887ed5ffbf086e86"
+    },
+    {
+      "path": "/U16",
+      "dtype": "U16",
+      "shape": [
+        2
+      ],
+      "length": 4,
+      "sha256": "b7d1b3a1104cc86b1cea310793cf777002db0517281d135a02de079b0ea87c23"
+    },
+    {
+      "path": "/U8",
+      "dtype": "U8",
+      "shape": [
+        2
+      ],
+      "length": 2,
+      "sha256": "06eb7d6a69ee19e5fbdf749018d3d2abfa04bcbd1365db312eb86dc7169389b8"
+    },
+    {
+      "path": "/BOOL",
+      "dtype": "BOOL",
+      "shape": [
+        3
+      ],
+      "length": 3,
+      "sha256": "85f90dfea1d8027e1463e5ca971a250110a20df0119d204a74220bc63516d15b"
+    },
+    {
+      "path": "/scalar",
+      "dtype": "F64",
+      "shape": [],
+      "length": 8,
+      "sha256": "e726a50d216e6d71d7c53aabd23ab5e0d4677c3ef1f41fc35410143ebe6381c1"
+    },
+    {
+      "path": "/empty",
+      "dtype": "I32",
+      "shape": [
+        0,
+        3
+      ],
+      "length": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/cube",
+      "dtype": "U8",
+      "shape": [
+        2,
+        2,
+        2
+      ],
+      "length": 8,
+      "sha256": "8a851ff82ee7048ad09ec3847f1ddf44944104d2cbd17ef4e3db22c6785a0d45"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "canonical": true,
+  "document": {
+    "$dtype": "a property named $dtype is data",
+    "$$shape": [
+      1,
+      2
+    ],
+    "$": null,
+    "a$b": true,
+    "": "an empty property name",
+    "nested": [
+      {
+        "$offset": 3,
+        "t": null
+      }
+    ],
+    "text": "$dtype in a string value is only text"
+  },
+  "tensors": [
+    {
+      "path": "/nested/0/t",
+      "dtype": "F32",
+      "shape": [
+        1
+      ],
+      "length": 4,
+      "sha256": "211c43d86001e6751bab2b0ed1a881863086cd271da5a063d50da5657bf64ec9"
+    }
+  ]
+}

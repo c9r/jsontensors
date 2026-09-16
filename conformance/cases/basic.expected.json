@@ -1,0 +1,48 @@
+{
+  "canonical": true,
+  "document": {
+    "title": "Rain on a tin roof",
+    "sample_rate": 48000,
+    "channels": [
+      {
+        "name": "left",
+        "samples": null
+      },
+      {
+        "name": "right",
+        "samples": null
+      }
+    ],
+    "peaks": null
+  },
+  "tensors": [
+    {
+      "path": "/channels/0/samples",
+      "dtype": "F32",
+      "shape": [
+        8
+      ],
+      "length": 32,
+      "sha256": "0baa31f07fd96d8868780a53470110761554ce449204b32fdb6765d76ed838fe"
+    },
+    {
+      "path": "/channels/1/samples",
+      "dtype": "F32",
+      "shape": [
+        8
+      ],
+      "length": 32,
+      "sha256": "9e42064f30217ceccdfec22b2cebe58805aeca853d1974fa183a57dbd905ebc0"
+    },
+    {
+      "path": "/peaks",
+      "dtype": "I16",
+      "shape": [
+        2,
+        4
+      ],
+      "length": 16,
+      "sha256": "0943c859ad8a36363cd23a01b5b23fdd2c694bfa97768094977cba624a344d8d"
+    }
+  ]
+}

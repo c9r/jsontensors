@@ -1,0 +1,11 @@
+{
+  "canonical": true,
+  "document": {
+    "only": "text",
+    "and": [
+      null,
+      false
+    ]
+  },
+  "tensors": []
+}

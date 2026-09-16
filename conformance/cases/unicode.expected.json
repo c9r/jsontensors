@@ -1,0 +1,22 @@
+{
+  "canonical": true,
+  "document": {
+    "grüße": "héllo wörld",
+    "日本語": "こんにちは",
+    "emoji": "😀🎉",
+    "escapes": "quote \" backslash \\ newline \n tab \t nul \u0000 bell \u0007",
+    "slash": "a/b and ~tilde",
+    "key/with~specials": null
+  },
+  "tensors": [
+    {
+      "path": "/key~1with~0specials",
+      "dtype": "F32",
+      "shape": [
+        1
+      ],
+      "length": 4,
+      "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    }
+  ]
+}

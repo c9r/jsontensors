@@ -1,0 +1,35 @@
+{
+  "canonical": false,
+  "document": {
+    "spaced": true,
+    "numbers": [
+      1,
+      100,
+      1e-7,
+      0,
+      2.5
+    ],
+    "reversed": null,
+    "misaligned": null
+  },
+  "tensors": [
+    {
+      "path": "/reversed",
+      "dtype": "U8",
+      "shape": [
+        3
+      ],
+      "length": 3,
+      "sha256": "039058c6f2c0cb492c533b0a4d14ef77cc0f78abccced5287d84a1a2011cfb81"
+    },
+    {
+      "path": "/misaligned",
+      "dtype": "F64",
+      "shape": [
+        1
+      ],
+      "length": 8,
+      "sha256": "5caaabe50da77f59f448b3edf650d68fbca7b858390664c251c52b3f458a881c"
+    }
+  ]
+}

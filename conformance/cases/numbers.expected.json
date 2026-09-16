@@ -1,0 +1,17 @@
+{
+  "canonical": true,
+  "document": {
+    "zero": 0,
+    "negative": -17,
+    "largest": 9007199254740992,
+    "smallest": -9007199254740992,
+    "half": 0.5,
+    "quarter": -0.25,
+    "mixed": [
+      1.75,
+      1024,
+      -0.125
+    ]
+  },
+  "tensors": []
+}
