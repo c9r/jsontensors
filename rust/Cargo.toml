@@ -1,0 +1,39 @@
+[package]
+name = "jsontensors"
+version = "0.1.0"
+edition = "2024"
+description = "A JSON document with its arrays as tensors in a binary buffer behind it, in place and read as views"
+license = "MIT"
+repository = "https://github.com/c9r/jsontensors"
+homepage = "https://github.com/c9r/jsontensors"
+readme = "README.md"
+keywords = ["json", "tensor", "safetensors", "numpy", "serialization"]
+categories = ["encoding", "science", "parser-implementations"]
+
+[dependencies]
+bytemuck = { version = "1.25.2", features = ["extern_crate_alloc"] }
+bytes = "1.12.1"
+clap = { version = "4.6.7", features = ["derive"], optional = true }
+half = { version = "2.7.1", features = ["bytemuck"] }
+indexmap = "2.14.2"
+memmap2 = "0.9.11"
+ryu = "1.0.23"
+serde_json = { version = "1.0.151", features = ["preserve_order", "arbitrary_precision"] }
+tempfile = "3.27.0"
+thiserror = "2.0.20"
+
+[dev-dependencies]
+hex = "0.4.3"
+sha2 = "0.11.0"
+
+[features]
+cli = ["dep:clap"]
+
+[[bin]]
+name = "jsontensors"
+path = "src/bin/jsontensors.rs"
+required-features = ["cli"]
+
+[[example]]
+name = "generate"
+path = "examples/generate.rs"
