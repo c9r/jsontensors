@@ -1,0 +1,87 @@
+name: release
+
+# A tag names the package and the version it releases: rust-v0.1.0,
+# python-v0.1.0, or typescript-v0.1.0. The job for that package checks that
+# the tag's version is the manifest's, runs the package's tests, and
+# publishes it to its registry.
+
+on:
+  push:
+    tags:
+      - "rust-v*"
+      - "python-v*"
+      - "typescript-v*"
+
+jobs:
+  rust:
+    if: startsWith(github.ref_name, 'rust-v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: The tag's version is the manifest's
+        working-directory: rust
+        run: |
+          tag="${GITHUB_REF_NAME#rust-v}"
+          manifest="$(grep -m1 '^version = ' Cargo.toml | sed 's/version = "\(.*\)"/\1/')"
+          test "$tag" = "$manifest" || { echo "tag $tag but Cargo.toml says $manifest"; exit 1; }
+      - working-directory: rust
+        run: cargo test --features cli
+      - working-directory: rust
+        run: cargo publish --features cli
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
+  python:
+    if: startsWith(github.ref_name, 'python-v')
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: The tag's version is the manifest's
+        working-directory: python
+        run: |
+          tag="${GITHUB_REF_NAME#python-v}"
+          manifest="$(grep -m1 '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
+          test "$tag" = "$manifest" || { echo "tag $tag but pyproject.toml says $manifest"; exit 1; }
+      - working-directory: python
+        run: uv sync --dev && uv run pytest -q
+      - working-directory: python
+        run: uv build
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist
+
+  typescript:
+    if: startsWith(github.ref_name, 'typescript-v')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: typescript/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          registry-url: https://registry.npmjs.org
+      - name: The tag's version is the manifest's
+        working-directory: typescript
+        run: |
+          tag="${GITHUB_REF_NAME#typescript-v}"
+          manifest="$(node -p 'require("./package.json").version')"
+          test "$tag" = "$manifest" || { echo "tag $tag but package.json says $manifest"; exit 1; }
+      - working-directory: typescript
+        run: pnpm install --frozen-lockfile
+      - working-directory: typescript
+        run: pnpm check && pnpm lint && pnpm test && pnpm build
+      - working-directory: typescript
+        run: pnpm publish --access public --provenance --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
